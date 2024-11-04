@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1) Viết một hàm tìm giá lớn nhất trong mảng sau đây.
+      const products = [
+        { id: 1, name: "Laptop", price: 1200 },
+        { id: 2, name: "Smartphone", price: 800 },
+        { id: 3, name: "Tablet", price: 600 },
+        { id: 4, name: "Smartwatch", price: 1250 },
+        { id: 5, name: "Headphones", price: 150 },
+      ];
+
+      // + Tên hàm là: findMaxObject
+      // + Có hai tham số arr và key
+      // + arr: Là mảng đầu vào, ở đây là products
+      // + key: Là key cần tìm giá trị lớn nhất, ở đây có thể là price, hoặc là id.
+      //   ++ Nếu là price thì tìm giá lớn nhất
+      //   ++ Nếu là id thì tìm id lớn nhất
+
+      function findMaxObject(arr, key) {
+        if (key == "id") {
+          arr.sort((a, b) => {
+            return a.id - b.id;
+          });
+          return arr[arr.length - 1].id;
+        } else if (key == "price") {
+          arr.sort((a, b) => {
+            return a.price - b.price;
+          });
+          return arr[arr.length - 1].price;
+        }
+      }
+      console.log(findMaxObject(products, "id"));
+      console.log(findMaxObject(products, "price"));
+    </script>
+  </body>
+</html>
